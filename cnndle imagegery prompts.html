@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ultra Candle Prompt Pack — 11 Premium AI Prompts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0804;
+      --surface: #110e09;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: #6e5a2a;
+      --cream: #f5eed8;
+      --smoke: #c8bfb0;
+      --text: #e8dcc8;
+      --accent: #ff6b35;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── ANIMATED BACKGROUND ─── */
+    .bg-flame {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: radial-gradient(ellipse 60% 40% at 50% 110%, #4a2800 0%, #1a0e04 40%, #0a0804 100%);
+      pointer-events: none;
+    }
+    .bg-flame::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 200px; height: 400px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.15) 0%, transparent 70%);
+      animation: flicker 3s ease-in-out infinite alternate;
+    }
+    @keyframes flicker {
+      0%   { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+      50%  { opacity: 1;   transform: translateX(-50%) scaleX(1.08); }
+      100% { opacity: 0.7; transform: translateX(-50%) scaleX(0.95); }
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      text-align: center;
+      padding: 72px 24px 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .badge {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 6px 18px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream);
+      animation: fadeUp 0.9s 0.1s ease both;
+    }
+    .title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .subtitle {
+      margin-top: 18px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--smoke);
+      animation: fadeUp 1s 0.2s ease both;
+    }
+
+    /* ─── FLAME DIVIDER ─── */
+    .flame-divider {
+      text-align: center;
+      font-size: 28px;
+      margin: 36px 0;
+      animation: flicker 2.5s ease-in-out infinite alternate;
+      animation: fadeUp 1s 0.3s ease both, flicker 2.5s 1s ease-in-out infinite alternate;
+    }
+
+    /* ─── STATS ROW ─── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 0 auto 48px;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--smoke);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION ─── */
+    section {
+      padding: 48px 0;
+    }
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold-dim), transparent);
+    }
+
+    /* ─── PROMPT CARDS ─── */
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+    .prompt-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 20px 24px;
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+      cursor: default;
+    }
+    .prompt-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      background: rgba(201,168,76,0.04);
+    }
+    .prompt-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      color: var(--gold-dim);
+      letter-spacing: 2px;
+      position: absolute;
+      top: 18px; right: 18px;
+    }
+    .prompt-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .prompt-meta {
+      font-size: 11px;
+      color: var(--smoke);
+      letter-spacing: 1px;
+    }
+    .prompt-tag {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      margin-top: 8px;
+    }
+
+    /* ─── STYLES SECTION ─── */
+    .styles-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+    @media (max-width: 600px) { .styles-row { grid-template-columns: 1fr; } }
+    .style-card {
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 24px 20px;
+      text-align: center;
+      background: rgba(201,168,76,0.03);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .style-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .style-icon { font-size: 2rem; margin-bottom: 10px; }
+    .style-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .style-desc { font-size: 11px; color: var(--smoke); line-height: 1.6; }
+
+    /* ─── TOOLS ─── */
+    .tools-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.7s ease both;
+    }
+    .tool-pill {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      padding: 8px 20px;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-wrap {
+      text-align: center;
+      padding: 64px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+    .price-block {
+      margin-bottom: 36px;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .price-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--smoke);
+      margin-bottom: 8px;
+    }
+    .price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .price sup { font-size: 1.5rem; vertical-align: super; }
+    .price-note {
+      font-size: 11px;
+      color: var(--smoke);
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* ─── BUTTONS ─── */
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+
+    /* BUY NOW */
+    .btn-buy {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #c9a84c 0%, #e8c97a 50%, #c9a84c 100%);
+      background-size: 200% 100%;
+      color: #0a0804;
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: background-position 0.4s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 0 30px rgba(201,168,76,0.25);
+    }
+    .btn-buy:hover {
+      background-position: 100% 0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(201,168,76,0.45);
+    }
+    .btn-buy:active { transform: translateY(0); }
+    .btn-buy svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* DOWNLOAD FREE PREVIEW */
+    .btn-preview {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--gold);
+      font-family: 'Raleway', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 17px 36px;
+      border: 1px solid var(--gold-dim);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.3s, color 0.3s, background 0.3s;
+    }
+    .btn-preview:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.06);
+    }
+    .btn-preview svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+    /* ─── TRUST ROW ─── */
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-top: 36px;
+      animation: fadeUp 1s 0.7s ease both;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      color: var(--smoke);
+      letter-spacing: 0.5px;
+    }
+    .trust-item .dot {
+      width: 5px; height: 5px;
+      background: var(--gold-dim);
+      border-radius: 50%;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 28px;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      font-size: 11px;
+      color: var(--gold-dim);
+      letter-spacing: 1px;
+    }
+
+    /* ─── ANIMATION ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── GOLD LINE ─── */
+    .gold-line {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim), transparent);
+      margin: 8px 0 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-flame"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="badge">■ Ultra World Class Prompt Pack ■</div>
+    <h1 class="title"><em>Candle Imagery</em><br>Prompts</h1>
+    <p class="subtitle">11 Ready-to-Use Premium Prompts for AI Image Generation</p>
+  </header>
+
+  <!-- FLAME + STATS -->
+  <div class="container">
+    <div class="flame-divider">🕯</div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">11</div><div class="stat-label">Prompts</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Styles</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">AI Tools</div></div>
+    </div>
+
+    <!-- STYLE CARDS -->
+    <section>
+      <div class="section-label">✦ Three Signature Styles</div>
+      <div class="styles-row">
+        <div class="style-card">
+          <div class="style-icon">🏛</div>
+          <div class="style-name">Luxury Product Photography</div>
+          <div class="style-desc">Hero banners, shop pages, ecommerce & brand shoots</div>
+        </div>
+        <div class="style-card">
+          <div class="style-icon">🎬</div>
+          <div class="style-name">Moody Cinematic Atmosphere</div>
+          <div class="style-desc">Backgrounds, hero images, Reels & mood imagery</div>
+        </div>
+        <div class="style-card">
+          <div class="style-icon">✨</div>
+          <div class="style-name">Diya / Sacred Flame</div>
+          <div class="style-desc">Temple, spiritual brands, festival & devotional reels</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMPTS LIST -->
+    <section>
+      <div class="section-label">✦ All 11 Prompts Included</div>
+      <div class="prompt-grid">
+
+        <div class="prompt-card">
+          <span class="prompt-num">01</span>
+          <div class="prompt-name">Premium White Pillar Candle — Studio Shot</div>
+          <div class="prompt-meta">Macro Shot · Dark Studio · Reflection</div>
+          <span class="prompt-tag">Midjourney v6 · 4:5</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">02</span>
+          <div class="prompt-name">Gold Jar Candle — Lifestyle Flat Lay</div>
+          <div class="prompt-meta">Top-down · Scandinavian · Natural Light</div>
+          <span class="prompt-tag">DALL-E 3 · 1:1</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">03</span>
+          <div class="prompt-name">Set of 3 Candles — White Background Hero</div>
+          <div class="prompt-meta">Ecommerce · Softbox · 16:9 Banner</div>
+          <span class="prompt-tag">Midjourney v6 · 16:9</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">04</span>
+          <div class="prompt-name">Luxury Black Candle — Dark Moody Editorial</div>
+          <div class="prompt-meta">Magazine Cover · Leica · Amber Contrast</div>
+          <span class="prompt-tag">Midjourney v6 · 4:5</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">05</span>
+          <div class="prompt-name">100 Candles — Grand Hall Scene</div>
+          <div class="prompt-meta">ARRI Alexa · Cathedral · Long Exposure</div>
+          <span class="prompt-tag">Midjourney v6 · 16:9</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">06</span>
+          <div class="prompt-name">Single Candle — Extreme Macro Flame</div>
+          <div class="prompt-meta">1/8000s · Nikon Z9 · Scientific Detail</div>
+          <span class="prompt-tag">Midjourney v6 · 9:16 Reel</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">07</span>
+          <div class="prompt-name">Candle + Water — Zen Reflection</div>
+          <div class="prompt-meta">Lotus · Wellness Brand · Low Key Studio</div>
+          <span class="prompt-tag">DALL-E 3 · 9:16</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">08</span>
+          <div class="prompt-name">Candle Smoke Art — Abstract Beauty</div>
+          <div class="prompt-meta">Hasselblad · Fractal Smoke · Pure Black</div>
+          <span class="prompt-tag">Midjourney v6 · 4:5</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">09</span>
+          <div class="prompt-name">Thousand Diyas — Deepavali River</div>
+          <div class="prompt-meta">Aerial View · Golden Hour · National Geographic</div>
+          <span class="prompt-tag">Midjourney v6 · 16:9</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">10</span>
+          <div class="prompt-name">Clay Diya — Ultra Macro Detail</div>
+          <div class="prompt-meta">Terracotta · Rangoli · Canon 100mm</div>
+          <span class="prompt-tag">Midjourney v6 · 9:16</span>
+        </div>
+
+        <div class="prompt-card">
+          <span class="prompt-num">11</span>
+          <div class="prompt-name">Rangoli + Diya — Festival Hero</div>
+          <div class="prompt-meta">Mandala · Flat Lay · Vibrant Festival</div>
+          <span class="prompt-tag">DALL-E 3 · 16:9</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AI TOOLS -->
+    <section>
+      <div class="section-label">✦ Works With</div>
+      <div class="tools-row">
+        <div class="tool-pill">Midjourney v6</div>
+        <div class="tool-pill">DALL-E 3</div>
+        <div class="tool-pill">Stable Diffusion</div>
+        <div class="tool-pill">Adobe Firefly</div>
+      </div>
+    </section>
+  </div><!-- /container -->
+
+  <div class="gold-line" style="max-width:860px;margin:0 auto;"></div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <div class="price-block">
+      <div class="price-label">One-Time Purchase</div>
+      <div class="price"><sup>$</sup>9</div>
+      <div class="price-note">Instant digital delivery · PDF format · Lifetime access</div>
+    </div>
+
+    <div class="btn-group">
+
+      <!-- BUY NOW — replace href with your payment link (Gumroad, Stripe, etc.) -->
+      <a href="https://YOUR-PAYMENT-LINK.com" class="btn-buy" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        Buy Now — $9
+      </a>
+
+      <!-- DOWNLOAD FREE PREVIEW — replace href with your preview PDF file path -->
+      <a href="/preview.pdf" class="btn-preview" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Free Preview
+      </a>
+
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item"><span class="dot"></span> Instant Download</div>
+      <div class="trust-item"><span class="dot"></span> Negative Prompts Included</div>
+      <div class="trust-item"><span class="dot"></span> Works with 3+ AI Tools</div>
+      <div class="trust-item"><span class="dot"></span> No Subscription</div>
+    </div>
+  </div>
+
+  <footer>
+    ✦ Ultra World Class Prompt Pack · Candle Edition ✦ &nbsp;|&nbsp; All rights reserved
+  </footer>
+
+</body>
+</html>
