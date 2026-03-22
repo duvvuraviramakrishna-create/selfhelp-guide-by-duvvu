@@ -1,0 +1,140 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.banner-wrap { background: #0a0a0a; border-radius: 16px; padding: 28px 32px 24px; max-width: 700px; margin: 0 auto; border: 1px solid #c9a84c; }
+.top-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.logo-area { display: flex; align-items: center; gap: 14px; }
+.logo-img { width: 72px; height: 72px; border-radius: 50%; border: 2px solid #c9a84c; object-fit: cover; }
+.brand-name { font-size: 20px; font-weight: 500; color: #c9a84c; letter-spacing: 0.04em; }
+.brand-sub { font-size: 11px; color: #8a7440; margin-top: 2px; letter-spacing: 0.08em; }
+.verified { display: flex; align-items: center; gap: 6px; background: rgba(201,168,76,0.1); border-radius: 20px; padding: 5px 12px; border: 0.5px solid rgba(201,168,76,0.3); }
+.verified-dot { width: 7px; height: 7px; border-radius: 50%; background: #c9a84c; }
+.verified span { font-size: 11px; color: #c9a84c; font-weight: 500; }
+.gold-line { border: none; border-top: 0.5px solid rgba(201,168,76,0.3); margin: 0 0 20px; }
+.main-title { font-size: 24px; font-weight: 500; color: #ffffff; line-height: 1.3; margin-bottom: 6px; }
+.main-title span { color: #c9a84c; }
+.sub-title { font-size: 13px; color: #8a8a8a; line-height: 1.6; margin-bottom: 22px; }
+.services-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px; }
+.service-chip { background: rgba(201,168,76,0.07); border: 0.5px solid rgba(201,168,76,0.25); border-radius: 10px; padding: 10px 6px; text-align: center; }
+.chip-icon { font-size: 16px; margin-bottom: 4px; }
+.chip-label { font-size: 11px; color: #c9a84c; font-weight: 500; }
+.stats-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px; }
+.stat-box { background: rgba(201,168,76,0.06); border-radius: 8px; padding: 10px 8px; text-align: center; border: 0.5px solid rgba(201,168,76,0.15); }
+.stat-num { font-size: 17px; font-weight: 500; color: #c9a84c; }
+.stat-label { font-size: 10px; color: #6a6a6a; margin-top: 3px; }
+.what-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.what-item { display: flex; align-items: flex-start; gap: 10px; }
+.check { width: 15px; height: 15px; border-radius: 50%; background: rgba(201,168,76,0.2); border: 0.5px solid #c9a84c; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.check svg { width: 8px; height: 8px; }
+.what-text { font-size: 13px; color: #9a9a9a; line-height: 1.5; }
+.platforms-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+.platform-badge { display: flex; align-items: center; gap: 5px; border-radius: 8px; padding: 5px 11px; border: 0.5px solid rgba(201,168,76,0.2); background: rgba(201,168,76,0.05); }
+.platform-badge span { font-size: 12px; font-weight: 500; color: #c9a84c; }
+.cta-row { display: flex; gap: 10px; align-items: center; }
+.cta-btn { flex: 1; background: #c9a84c; color: #0a0a0a; font-size: 14px; font-weight: 500; padding: 12px; border-radius: 10px; border: none; cursor: pointer; text-align: center; }
+.cta-btn:hover { background: #e0c06a; }
+.cta-secondary { flex: 1; background: transparent; color: #c9a84c; font-size: 14px; font-weight: 500; padding: 12px; border-radius: 10px; border: 1px solid rgba(201,168,76,0.4); cursor: pointer; text-align: center; }
+.cta-secondary:hover { background: rgba(201,168,76,0.08); }
+.bottom-note { text-align: center; font-size: 11px; color: #5a5a5a; margin-top: 14px; }
+.bottom-note span { color: #c9a84c; }
+</style>
+
+<div class="banner-wrap">
+
+  <div class="top-row">
+    <div class="logo-area">
+      <img src="/mnt/user-data/uploads/my_brand_logo.jpeg" class="logo-img" alt="Duvvu AI Creations Logo" />
+      <div>
+        <div class="brand-name">Duvvu AI Creations</div>
+        <div class="brand-sub">Professional Digital Services</div>
+      </div>
+    </div>
+    <div class="verified">
+      <div class="verified-dot"></div>
+      <span>Verified Freelancer</span>
+    </div>
+  </div>
+
+  <div class="gold-line"></div>
+
+  <div class="main-title">Premium Content &amp; <span>Digital Services</span></div>
+  <div class="sub-title">High-quality writing, publishing &amp; digital products — delivered fast, trusted worldwide by 100+ clients.</div>
+
+  <div class="services-grid">
+    <div class="service-chip">
+      <div class="chip-icon">&#9997;&#65039;</div>
+      <div class="chip-label">Content Writing</div>
+    </div>
+    <div class="service-chip">
+      <div class="chip-icon">&#128218;</div>
+      <div class="chip-label">Amazon KDP</div>
+    </div>
+    <div class="service-chip">
+      <div class="chip-icon">&#128187;</div>
+      <div class="chip-label">GitHub Projects</div>
+    </div>
+    <div class="service-chip">
+      <div class="chip-icon">&#128241;</div>
+      <div class="chip-label">Digital Products</div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">On-time delivery</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">Original</div>
+      <div class="stat-label">Plagiarism-free</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">5.0 &#9733;</div>
+      <div class="stat-label">Client rating</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Support</div>
+    </div>
+  </div>
+
+  <div class="gold-line"></div>
+
+  <div class="what-row">
+    <div class="what-item">
+      <div class="check"><svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="what-text">SEO blog posts, product descriptions &amp; website content that ranks on Google</div>
+    </div>
+    <div class="what-item">
+      <div class="check"><svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="what-text">Amazon KDP eBooks — formatted, ready to publish &amp; optimized for bestseller ranking</div>
+    </div>
+    <div class="what-item">
+      <div class="check"><svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="what-text">Digital templates &amp; PDF guides on Gumroad — passive income ready for you</div>
+    </div>
+    <div class="what-item">
+      <div class="check"><svg viewBox="0 0 10 8" fill="none"><polyline points="1,4 4,7 9,1" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="what-text">Clean GitHub code, README docs &amp; portfolios that impress clients instantly</div>
+    </div>
+  </div>
+
+  <div class="gold-line"></div>
+
+  <div style="font-size:11px; color:#6a6a6a; margin-bottom:10px; font-weight:500; letter-spacing:0.06em;">AVAILABLE ON</div>
+  <div class="platforms-row">
+    <div class="platform-badge"><span>&#9679; Fiverr</span></div>
+    <div class="platform-badge"><span>&#9679; Gumroad</span></div>
+    <div class="platform-badge"><span>&#9679; GitHub</span></div>
+    <div class="platform-badge"><span>&#9679; Amazon KDP</span></div>
+    <div class="platform-badge"><span>&#9679; Upwork</span></div>
+  </div>
+
+  <div class="cta-row">
+    <button class="cta-btn" onclick="sendPrompt('Write a professional Fiverr client message for Duvvu AI Creations')">Hire me on Fiverr ↗</button>
+    <button class="cta-secondary" onclick="sendPrompt('Create a Gumroad store description for Duvvu AI Creations digital products')">View my store ↗</button>
+  </div>
+
+  <div class="bottom-note"><span>Duvvu AI Creations</span> &nbsp;|&nbsp; Unlimited revisions &nbsp;|&nbsp; 100% satisfaction guaranteed</div>
+
+</div>
